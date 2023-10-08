@@ -1,0 +1,67 @@
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.059);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  padding: 1%;
+  position: relative;
+  margin-top: 3%;
+  width: 60%;
+  height: 50%;
+  background-color: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 10px;
+}
+
+.content span {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.content p {
+  font-size: 14px;
+}
+
+.content h2 {
+  margin: 0;
+}
+
+.content .price {
+  font-weight: 500;
+}
+
+.close-btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+}
+
+.close {
+  cursor: pointer;
+}
+
+.content .more-images {
+  background-color: #f9fafb;
+  padding: 1%;
+  border-radius: 5px;
+}
+
+.content .more-images p {
+  margin-block: 1%;
+}
+
+.content .more-images .imgs-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  gap: 2px;
+}

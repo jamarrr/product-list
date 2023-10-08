@@ -1,0 +1,26 @@
+.products-table {
+  margin-top: 1%;
+  width: 100%;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-collapse: collapse;
+  border-radius: 10px;
+  border-color: #edeef1;
+}
+
+.products-table th,
+.products-table tbody td {
+  text-align: center;
+  width: fit-content;
+  text-align: left;
+  padding: 10px;
+}
+
+.products-table thead {
+  background-color: rgb(243, 244, 246);
+  border-color: #edeef1;
+}
+
+.products-table tbody tr:hover {
+  cursor: pointer;
+  background-color: rgb(243, 244, 246);
+}
