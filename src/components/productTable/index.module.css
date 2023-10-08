@@ -1,10 +1,9 @@
 .products-table {
   margin-top: 1%;
   width: 100%;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border: 1px solid #edeef1;
   border-collapse: collapse;
-  border-radius: 10px;
-  border-color: #edeef1;
+  border-radius: 5px;
 }
 
 .products-table th,
@@ -22,5 +21,5 @@
 
 .products-table tbody tr:hover {
   cursor: pointer;
-  background-color: rgb(243, 244, 246);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
