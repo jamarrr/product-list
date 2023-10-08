@@ -1,15 +1,8 @@
-import reactLogo from '../../assets/react.svg';
+import { Product, TableProps } from '../../../types';
 import styles from './index.module.css';
-
-type TableProps = {
-  headers: string[];
-  data?: null;
-  setSelectedProduct: (product: number) => void;
-};
 
 export default function ProductTable({
   headers,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   data,
   setSelectedProduct,
 }: TableProps) {
@@ -23,19 +16,22 @@ export default function ProductTable({
         </tr>
       </thead>
       <tbody>
-        <tr onClick={() => setSelectedProduct(1)}>
-          <td className="img-container">
-            <img src={reactLogo} className="logo react" alt="React logo" />
-          </td>
-          <td>
-            <h3>iPhone 9</h3>
-            <p>
-              Apple iPhone Apple iPhone Apple iPhone Apple iPhone Apple iPhone
-              Apple iPhone
-            </p>
-          </td>
-          <td>P 549.00</td>
-        </tr>
+        {data?.map((product: Product) => (
+          <tr key={product.id} onClick={() => setSelectedProduct(product)}>
+            <td className="img-container">
+              <img
+                className={styles['row-image']}
+                src={product.thumbnail}
+                alt={product.title}
+              />
+            </td>
+            <td>
+              <h3>{product.title}</h3>
+              <p>{product.description}</p>
+            </td>
+            <td>₱{product.price}.00</td>
+          </tr>
+        ))}
       </tbody>
     </table>
   );

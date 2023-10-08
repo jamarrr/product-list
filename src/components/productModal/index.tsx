@@ -1,12 +1,13 @@
 import styles from './index.module.css';
 import closeIcon from '../../assets/close.svg';
+import { Product } from '../../../types';
 
 export default function ProductModal({
   selectedProduct,
   setSelectedProduct,
 }: {
-  selectedProduct: number | null;
-  setSelectedProduct: (prod: number | null) => void;
+  selectedProduct: Product | null;
+  setSelectedProduct: (prod: Product | null) => void;
 }) {
   return (
     <div className={styles.overlay}>
@@ -19,13 +20,22 @@ export default function ProductModal({
             className={styles.close}
           />
         </div>
-        <span>Smartphones {selectedProduct}</span>
-        <h2>iPhone 9</h2>
-        <p>An apple mobile which is nothing like apple</p>
-        <p className={styles.price}>P549.00</p>
+        <span>{selectedProduct?.category}</span>
+        <h2>{selectedProduct?.title}</h2>
+        <p>{selectedProduct?.description}</p>
+        <p className={styles.price}>₱{selectedProduct?.price}</p>
         <div className={styles['more-images']}>
           <p>More Images</p>
-          <div className={styles['imgs-container']}>{}</div>
+          <div className={styles['imgs-container']}>
+            {selectedProduct?.images.slice(0, 4).map((image) => (
+              <img
+                key={image}
+                src={image}
+                alt={image}
+                className={styles.image}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

@@ -1,8 +1,13 @@
 .container {
   margin: auto;
-  width: 80%;
+  width: 70%;
   height: 100vh;
-  overflow: auto;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding-bottom: 2%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .banner {
@@ -18,9 +23,22 @@
 
 .products {
   width: 98%;
+  height: 83vh;
   padding-inline: 1%;
+  overflow-y: auto;
+  box-sizing: border-box;
+  margin-top: 1%;
 }
 
-.img-container {
-  width: fit-content;
+.products::-webkit-scrollbar {
+  width: 10px;
+}
+
+.products::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #1481f4;
+}
+
+.products::-webkit-scrollbar-track {
+  background-color: #f1f1f169;
 }

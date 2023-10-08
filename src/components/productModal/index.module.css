@@ -9,6 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .content {
@@ -36,7 +37,8 @@
 }
 
 .content .price {
-  font-weight: 500;
+  font-weight: 700;
+  font-size: 16px;
 }
 
 .close-btn-container {
@@ -64,4 +66,11 @@
   width: 100%;
   display: flex;
   gap: 2px;
+  justify-content: space-between;
+}
+
+.content .more-images .imgs-container .image {
+  max-width: 25%;
+  height: 150px;
+  object-fit: contain;
 }
