@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  width: 98%;
+  padding: 1%;
+  border: 2px solid #edeef1;
+  border-radius: 5px;
+}
+
+.container input {
+  width: 98%;
+  border: none;
+  outline: none;
+  font-family: 'Nunito', sans-serif;
+}
+
+.active {
+  border: 2px solid #005eca;
+}
+
+.close {
+  cursor: pointer;
+}
