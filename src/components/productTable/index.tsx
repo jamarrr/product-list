@@ -19,7 +19,7 @@ export default function ProductTable({
       </thead>
       <tbody>
         {data?.map((product: Product) => (
-          <tr key={product.id} onClick={() => setSelectedProduct(product)}>
+          <tr key={product.id} onClick={() => setSelectedProduct(product.id)}>
             <td className="img-container">
               <img
                 className={styles['row-image']}
