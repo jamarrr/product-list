@@ -6,6 +6,8 @@ export default function ProductTable({
   data,
   setSelectedProduct,
 }: TableProps) {
+  if (data?.length === 0) return 'No products to show.';
+
   return (
     <table className={styles['products-table']}>
       <thead>

@@ -19,12 +19,14 @@ export default function TextBox({ value, setValue }: TextBoxProps) {
         onFocus={() => setIsActive(true)}
         onBlur={() => setIsActive(false)}
       />
-      <img
-        src={closeIcon}
-        alt="close"
-        className={styles.close}
-        onClick={() => setValue('')}
-      />
+      {value !== '' ? (
+        <img
+          src={closeIcon}
+          alt="close"
+          className={styles.close}
+          onClick={() => setValue('')}
+        />
+      ) : null}
     </div>
   );
 }
