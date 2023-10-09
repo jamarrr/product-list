@@ -6,7 +6,7 @@ import ProductTable from './components/productTable';
 import { ConditionalProductContentProps, Product } from '../types';
 import useSWR from 'swr';
 import { useDebounce } from '@uidotdev/usehooks';
-import { fetchProducts } from './api';
+import { fetchData } from './api';
 
 function RenderConditionalContent({
   keywordSearch,
@@ -17,7 +17,7 @@ function RenderConditionalContent({
 }: ConditionalProductContentProps) {
   if (keywordSearch !== '' && isSearching) {
     return 'Searching ...';
-  } else if (keywordSearch !== '' && products?.length === 0) {
+  } else if (products?.length === 0 && keywordSearch !== '') {
     return 'No product matched your searched keyword.';
   }
 
@@ -32,13 +32,15 @@ function RenderConditionalContent({
 
 function App() {
   const HEADERS = ['Thumbnail', 'Name', 'Price'];
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [selectedProductId, setSelectedProductId] = useState<number | null>(
+    null
+  );
   const [searchKeyword, setSearchKeyword] = useState<string>('');
   const [isSearching, setIsSearching] = useState<boolean>(false);
   const [products, setProducts] = useState<Product[]>([]);
 
   const keywordSearch = useDebounce(searchKeyword, 1000);
-  const { data } = useSWR('https://dummyjson.com/products', fetchProducts, {
+  const { data } = useSWR('https://dummyjson.com/products', fetchData, {
     revalidateOnFocus: false,
   });
 
@@ -66,16 +68,16 @@ function App() {
       <div className="products">
         <RenderConditionalContent
           headers={HEADERS}
-          setSelectedProduct={setSelectedProduct}
+          setSelectedProduct={setSelectedProductId}
           keywordSearch={keywordSearch}
           isSearching={isSearching}
           products={keywordSearch !== '' ? products : data?.products}
         />
       </div>
-      {selectedProduct !== null && (
+      {selectedProductId !== null && (
         <ProductModal
-          selectedProduct={selectedProduct}
-          setSelectedProduct={setSelectedProduct}
+          selectedProductId={selectedProductId}
+          setSelectedProductId={setSelectedProductId}
         />
       )}
     </div>

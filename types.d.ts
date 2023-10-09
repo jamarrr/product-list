@@ -15,7 +15,7 @@ export type Product = {
 export type TableProps = {
   headers: string[];
   data: Product[];
-  setSelectedProduct: (product: Product) => void;
+  setSelectedProduct: (product: number) => void;
 };
 
 export type ConditionalProductContentProps = {
@@ -23,5 +23,10 @@ export type ConditionalProductContentProps = {
   isSearching: boolean;
   products: Product[];
   headers: string[];
-  setSelectedProduct: (product: Product) => void;
+  setSelectedProduct: (id: number | null) => void;
+};
+
+export type ProductModalProps = {
+  selectedProductId: number;
+  setSelectedProductId: (id: number | null) => void;
 };

@@ -1,14 +1,18 @@
 import styles from './index.module.css';
 import closeIcon from '../../assets/close.svg';
-import { Product } from '../../../types';
+import { Product, ProductModalProps } from '../../../types';
+import useSWR from 'swr';
+import { fetchData } from '../../api';
 
 export default function ProductModal({
-  selectedProduct,
-  setSelectedProduct,
-}: {
-  selectedProduct: Product | null;
-  setSelectedProduct: (prod: Product | null) => void;
-}) {
+  selectedProductId,
+  setSelectedProductId,
+}: ProductModalProps) {
+  const { data: productDetails } = useSWR<Product>(
+    `https://dummyjson.com/products/${selectedProductId}`,
+    fetchData
+  );
+
   return (
     <div className={styles.overlay}>
       <div className={styles.content}>
@@ -16,18 +20,18 @@ export default function ProductModal({
           <img
             src={closeIcon}
             alt="close"
-            onClick={() => setSelectedProduct(null)}
+            onClick={() => setSelectedProductId(null)}
             className={styles.close}
           />
         </div>
-        <span>{selectedProduct?.category}</span>
-        <h2>{selectedProduct?.title}</h2>
-        <p>{selectedProduct?.description}</p>
-        <p className={styles.price}>₱{selectedProduct?.price}</p>
+        <span>{productDetails?.category}</span>
+        <h2>{productDetails?.title}</h2>
+        <p>{productDetails?.description}</p>
+        <p className={styles.price}>₱{productDetails?.price}</p>
         <div className={styles['more-images']}>
           <p>More Images</p>
           <div className={styles['imgs-container']}>
-            {selectedProduct?.images.slice(0, 4).map((image) => (
+            {productDetails?.images.slice(0, 4).map((image) => (
               <img
                 key={image}
                 src={image}
