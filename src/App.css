@@ -24,7 +24,6 @@
 .products {
   width: 98%;
   height: 83vh;
-  padding-inline: 1%;
   overflow-y: auto;
   box-sizing: border-box;
   margin-top: 1%;

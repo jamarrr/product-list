@@ -17,3 +17,11 @@ export type TableProps = {
   data: Product[];
   setSelectedProduct: (product: Product) => void;
 };
+
+export type ConditionalProductContentProps = {
+  keywordSearch: string;
+  isSearching: boolean;
+  products: Product[];
+  headers: string[];
+  setSelectedProduct: (product: Product) => void;
+};
